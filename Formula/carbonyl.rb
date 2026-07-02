@@ -1,24 +1,24 @@
 class Carbonyl < Formula
   desc "Chromium-based browser that runs in the terminal (genkio fork)"
   homepage "https://github.com/genkio/carbonyl"
-  version "0.1.0"
+  version "0.2.0"
   license "BSD-3-Clause"
 
   on_macos do
     on_arm do
-      url "https://github.com/genkio/carbonyl/releases/download/v0.1.0/carbonyl-macos-arm64"
-      sha256 "3bda8ecc2a143e669e24beafffd06b5652947b7bca047260a9478384a7582004"
+      url "https://github.com/genkio/carbonyl/releases/download/v0.2.0/carbonyl-macos-arm64"
+      sha256 "c1be70fbb54ba0bb533f45dfcf66488a008489649da769e6bca9dca6ec936842"
     end
     on_intel do
-      url "https://github.com/genkio/carbonyl/releases/download/v0.1.0/carbonyl-macos-x86_64"
-      sha256 "4128662758817eb7a1b63895a3072900ae202b0b659bc8fc076db60492718c1b"
+      url "https://github.com/genkio/carbonyl/releases/download/v0.2.0/carbonyl-macos-x86_64"
+      sha256 "54a8020f3d0df0fb1fdd4cabf4837901557551fa38cf2dba6c5378326ff7fbcc"
     end
   end
 
   on_linux do
     on_intel do
-      url "https://github.com/genkio/carbonyl/releases/download/v0.1.0/carbonyl-linux-x86_64"
-      sha256 "01780faa193fe6763c8da0fb06fe7c5969fac22ca094418216821e98b23cb86d"
+      url "https://github.com/genkio/carbonyl/releases/download/v0.2.0/carbonyl-linux-x86_64"
+      sha256 "a2b7d1e0d2fa33f025bc9d5207aebeadf807dfa60a7ad82662534699d2168ce5"
     end
   end
 
