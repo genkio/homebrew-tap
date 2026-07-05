@@ -4,6 +4,24 @@ Personal Homebrew tap.
 
 ## Formulae
 
+### cc-autoresume
+
+Watches running Claude Code sessions in tmux and auto-resumes them after a
+usage-limit reset, so a `You've hit your session limit` stop no longer leaves a
+session idle until you nudge it by hand.
+
+```sh
+brew install genkio/tap/cc-autoresume
+cc-autoresume --list                            # show live claude panes + status
+cc-autoresume                                   # run the daemon in the foreground
+brew services start genkio/tap/cc-autoresume    # or run it in the background
+```
+
+It discovers sessions across every window and pane of the running tmux server
+(not just the current one), so a tmux server must be running.
+
+Source: <https://github.com/genkio/cc-autoresume>
+
 ### carbonyl
 
 A fork of [fathyb/carbonyl](https://github.com/fathyb/carbonyl) (Chromium in
