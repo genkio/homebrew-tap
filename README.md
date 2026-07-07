@@ -4,6 +4,23 @@ Personal Homebrew tap.
 
 ## Formulae
 
+### vidgrep
+
+Natural-language scene search and clipping for local video files, fully local
+(CLIP embeddings + shot detection, no cloud). Point it at a video or folder,
+describe the scene, get timestamps or ready-cut clips.
+
+```sh
+brew install genkio/tap/vidgrep
+vidgrep oneshot ~/Videos "a dog jumping into a lake" -k 5   # index + cut clips
+vidgrep search "two people kissing in a coffee shop"        # print timestamps
+```
+
+First run downloads CLIP weights (~1.7 GB) to `~/.cache`; indexing is one-time
+and resumable, search is instant afterwards.
+
+Source: <https://github.com/genkio/vidgrep>
+
 ### cc-autoresume
 
 Watches running Claude Code sessions in tmux and auto-resumes them after a
