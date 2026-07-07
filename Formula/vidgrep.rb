@@ -14,6 +14,11 @@ class Vidgrep < Formula
     system python, "-m", "venv", venv
     # deps resolved from PyPI at install time; torch & friends are too big to vendor as resources
     system venv/"bin/pip", "install", "--quiet", buildpath.to_s
+    # torchvision arm64 wheels lack an rpath to torch's bundled dylibs -> "operator torchvision::nms does not exist"
+    Dir[venv/"lib/python3.13/site-packages/torchvision/*.so"].each do |so|
+      system "install_name_tool", "-add_rpath", "@loader_path/../torch/lib", so
+      system "codesign", "--force", "--sign", "-", so
+    end
     bin.install_symlink venv/"bin/vidgrep"
   end
 
