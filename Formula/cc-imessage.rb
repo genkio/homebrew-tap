@@ -1,17 +1,20 @@
-require "language/python"
-
 class CcImessage < Formula
   desc "Two-way bridge between Claude Code tmux sessions and iMessage"
   homepage "https://github.com/genkio/cc-imessage"
-  url "https://github.com/genkio/cc-imessage/archive/refs/tags/v0.1.0.tar.gz"
-  sha256 "2ae26fad6ec16a42fd3d455a745ab3304a104bd8aece6a6a92665e34f97f0f4c"
+  version "0.2.0"
 
-  depends_on "python@3.13"
+  # Prebuilt standalone binary so it has its own code identity: Full Disk Access
+  # scopes to just cc-imessage, not the shared Python interpreter.
+  on_arm do
+    url "https://github.com/genkio/cc-imessage/releases/download/v0.2.0/cc-imessage-0.2.0-arm64.tar.gz"
+    sha256 "2a232ff6a8670634b4b02992a29d135bf306b9f270bade6ebd72884009050707"
+  end
+
   depends_on "tmux"
+  depends_on :macos
 
   def install
-    bin.install "cc-imessage.py" => "cc-imessage"
-    rewrite_shebang Language::Python::Shebang.detected_python_shebang(self), bin/"cc-imessage"
+    bin.install "cc-imessage"
   end
 
   service do
@@ -33,14 +36,14 @@ class CcImessage < Formula
             { "type": "command", "command": "cc-imessage notify" }
 
       Setup:
-        1. Full Disk Access so the daemon can read chat.db. For brew services
-           (launchd), grant it to the python that runs cc-imessage:
-             head -1 "$(brew --prefix)/bin/cc-imessage"
-           add that path (and its `readlink -f` target if the grant won't stick).
-           For a foreground run, grant it to your terminal instead.
+        1. Full Disk Access so it can read chat.db. Grant it to the binary itself
+           (its own code identity, nothing else inherits it):
+             #{opt_bin}/cc-imessage
         2. Set PHONE in ~/.cc-imessage/config to your iMessage handle (E.164).
 
       Needs a running tmux server; sessions are discovered and driven through tmux.
+
+      arm64 only for now. On Intel, build from source: `make build` in the repo.
     EOS
   end
 
