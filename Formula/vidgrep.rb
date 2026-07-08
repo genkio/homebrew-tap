@@ -1,8 +1,8 @@
 class Vidgrep < Formula
   desc "Natural-language scene search and clipping for local video files"
   homepage "https://github.com/genkio/vidgrep"
-  url "https://github.com/genkio/vidgrep/archive/refs/tags/v0.3.1.tar.gz"
-  sha256 "34eea956ae5d18db72f624094ce2385b6da099d339dd50695b4dc6065456dca8"
+  url "https://github.com/genkio/vidgrep/archive/refs/tags/v0.4.0.tar.gz"
+  sha256 "75f3194c3b5f60c4af4fe870da825afeea0f850343642c56c024b86ec1be1680"
   license "MIT"
 
   depends_on "ffmpeg"
@@ -12,12 +12,16 @@ class Vidgrep < Formula
     python = Formula["python@3.13"].opt_bin/"python3.13"
     venv = libexec/"venv"
     system python, "-m", "venv", venv
-    # deps resolved from PyPI at install time; torch & friends are too big to vendor as resources
-    system venv/"bin/pip", "install", "--quiet", buildpath.to_s
-    # torchvision arm64 wheels lack an rpath to torch's bundled dylibs -> "operator torchvision::nms does not exist"
-    Dir[venv/"lib/python3.13/site-packages/torchvision/*.so"].each do |so|
-      system "install_name_tool", "-add_rpath", "@loader_path/../torch/lib", so
-      system "codesign", "--force", "--sign", "-", so
+    # PyTorch ships no Intel-macOS wheels, so Intel installs the torch-free core (search + cut
+    # via an exported ONNX encoder); Apple Silicon gets the full indexing stack.
+    target = Hardware::CPU.arm? ? "#{buildpath}[index]" : buildpath.to_s
+    system venv/"bin/pip", "install", "--quiet", target
+    if Hardware::CPU.arm?
+      # torchvision arm64 wheels lack an rpath to torch's bundled dylibs -> "operator torchvision::nms does not exist"
+      Dir[venv/"lib/python3.13/site-packages/torchvision/*.so"].each do |so|
+        system "install_name_tool", "-add_rpath", "@loader_path/../torch/lib", so
+        system "codesign", "--force", "--sign", "-", so
+      end
     end
     bin.install_symlink venv/"bin/vidgrep"
   end
