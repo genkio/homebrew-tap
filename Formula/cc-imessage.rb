@@ -19,6 +19,8 @@ class CcImessage < Formula
   service do
     run [opt_bin/"cc-imessage", "run"]
     keep_alive true
+    # launchd's minimal PATH lacks Homebrew's bin, where tmux lives
+    environment_variables PATH: "#{HOMEBREW_PREFIX}/bin:/usr/bin:/bin:/usr/sbin:/sbin"
     log_path var/"log/cc-imessage.log"
     error_log_path var/"log/cc-imessage.log"
   end
