@@ -39,6 +39,26 @@ It discovers sessions across every window and pane of the running tmux server
 
 Source: <https://github.com/genkio/cc-autoresume>
 
+### cc-imessage
+
+A two-way bridge between Claude Code tmux sessions and iMessage. Each session
+texts you a Haiku-summarized notification when it finishes; reply from your phone
+and it lands back in the right tmux pane, so you can drive sessions hands-free
+from anywhere (text and photos, routed by reply-thread).
+
+```sh
+brew install genkio/tap/cc-imessage
+brew services start genkio/tap/cc-imessage    # the daemon (phone replies -> tmux)
+cc-imessage status                            # outbound on/off + daemon state
+```
+
+Needs a running tmux server, separate iMessage accounts on the Mac and phone,
+Full Disk Access + Automation granted to the binary, and `PHONE` set in
+`~/.cc-imessage/config`; add a Claude Code Stop hook (`cc-imessage notify`) for
+outbound. Full setup in the repo README. arm64 only for now.
+
+Source: <https://github.com/genkio/cc-imessage>
+
 ### carbonyl
 
 A fork of [fathyb/carbonyl](https://github.com/fathyb/carbonyl) (Chromium in
