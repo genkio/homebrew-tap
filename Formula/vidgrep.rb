@@ -1,8 +1,8 @@
 class Vidgrep < Formula
   desc "Natural-language scene search and clipping for local video files"
   homepage "https://github.com/genkio/vidgrep"
-  url "https://github.com/genkio/vidgrep/archive/refs/tags/v0.5.3.tar.gz"
-  sha256 "c49409fefdda5de231b237e496872ec25c8ff191bba7aca45d57506a7c8cd372"
+  url "https://github.com/genkio/vidgrep/archive/refs/tags/v0.5.4.tar.gz"
+  sha256 "56cc4f88a6a6c47c4bbc59f8399d891afd07a4c8b0d4539f120b3b2d2613983b"
   license "MIT"
 
   depends_on "ffmpeg"
