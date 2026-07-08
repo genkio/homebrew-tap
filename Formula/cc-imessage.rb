@@ -34,7 +34,10 @@ class CcImessage < Formula
 
       Setup:
         1. Full Disk Access so the daemon can read chat.db. For brew services
-           (launchd) add /usr/bin/python3; for a foreground run add your terminal.
+           (launchd), grant it to the python that runs cc-imessage:
+             head -1 "$(brew --prefix)/bin/cc-imessage"
+           add that path (and its `readlink -f` target if the grant won't stick).
+           For a foreground run, grant it to your terminal instead.
         2. Set PHONE in ~/.cc-imessage/config to your iMessage handle (E.164).
 
       Needs a running tmux server; sessions are discovered and driven through tmux.
