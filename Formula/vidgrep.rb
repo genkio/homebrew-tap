@@ -1,8 +1,8 @@
 class Vidgrep < Formula
   desc "Natural-language scene search and clipping for local video files"
   homepage "https://github.com/genkio/vidgrep"
-  url "https://github.com/genkio/vidgrep/archive/refs/tags/v0.5.5.tar.gz"
-  sha256 "dce75d997cd6c702652424459b0b86372a495601be5c7a836be74e5a422c774e"
+  url "https://github.com/genkio/vidgrep/archive/refs/tags/v0.5.6.tar.gz"
+  sha256 "16235e67ee6f15b9e8397e764dedaa2f38de546251ebe35608e99a75b902f501"
   license "MIT"
 
   # keep the @rpath dylib id we set below instead of rewriting it to a long absolute path
