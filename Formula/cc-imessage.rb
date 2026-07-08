@@ -4,6 +4,8 @@ class CcImessage < Formula
   # Prebuilt standalone binary so it has its own code identity: Full Disk Access
   # scopes to just cc-imessage, not the shared Python interpreter. arm64 only.
   url "https://github.com/genkio/cc-imessage/releases/download/v0.2.0/cc-imessage-0.2.0-arm64.tar.gz"
+  # explicit: brew otherwise parses "64" out of "arm64" in the filename
+  version "0.2.0"
   sha256 "2a232ff6a8670634b4b02992a29d135bf306b9f270bade6ebd72884009050707"
 
   depends_on arch: :arm64
