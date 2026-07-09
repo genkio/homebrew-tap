@@ -3,8 +3,8 @@ class Herdlet < Formula
 
   desc "Tiny coordination bus for coding agents in tmux panes"
   homepage "https://github.com/genkio/herdlet"
-  url "https://github.com/genkio/herdlet/archive/refs/tags/v0.1.1.tar.gz"
-  sha256 "7413b156891ea8b2518246193bbaa56e7b31e3c5c3c63c3062e07247bbc14af0"
+  url "https://github.com/genkio/herdlet/archive/refs/tags/v0.1.2.tar.gz"
+  sha256 "9e7d954d083b51f8724ea47b714c1aa42946a1f32f337a1e7ab3680c865542b2"
   license "MIT"
 
   depends_on "python@3.13"
@@ -13,7 +13,7 @@ class Herdlet < Formula
   def install
     rewrite_shebang detected_python_shebang, "herdlet.py"
     bin.install "herdlet.py" => "herdlet"
-    doc.install "SKILL.md", "README.md"
+    doc.install "skills/herdlet/SKILL.md", "README.md"
   end
 
   def caveats
@@ -26,8 +26,8 @@ class Herdlet < Formula
         #{doc}/README.md
 
       To let agents coordinate with each other, install the skill:
-        mkdir -p ~/.claude/skills/herdlet
-        cp #{doc}/SKILL.md ~/.claude/skills/herdlet/
+        npx skills add genkio/herdlet
+      (or copy #{doc}/SKILL.md into ~/.claude/skills/herdlet/)
 
       Live status popup for your tmux.conf:
         bind m display-popup -E -w 80% -h 60% -T " agents " "herdlet monitor"

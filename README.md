@@ -4,6 +4,27 @@ Personal Homebrew tap.
 
 ## Formulae
 
+### herdlet
+
+Tiny coordination bus for coding agents (Claude Code, Codex) running in tmux
+panes. tmux stays the multiplexer; herdlet adds semantic agent state
+(working / blocked / done), push-based wait/subscribe instead of capture-pane
+polling, a registry so agents address each other by name, and a live monitor
+TUI for a tmux popup. Single file, stdlib-only Python.
+
+```sh
+brew install genkio/tap/herdlet
+herdlet list                                     # who is doing what
+herdlet wait --id builder --state done,blocked   # block until an agent finishes
+herdlet send --id builder "run the tests again"  # type into its pane
+herdlet monitor                                  # live who-is-stuck view
+```
+
+State updates automatically via Claude Code / Codex hooks (`herdlet hook`);
+agents learn to coordinate via the bundled skill (`npx skills add genkio/herdlet`).
+
+Source: <https://github.com/genkio/herdlet>
+
 ### vidgrep
 
 Natural-language scene search and clipping for local video files, fully local
