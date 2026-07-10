@@ -3,8 +3,8 @@ class Herdlet < Formula
 
   desc "Tiny coordination bus for coding agents in tmux panes"
   homepage "https://github.com/genkio/herdlet"
-  url "https://github.com/genkio/herdlet/archive/refs/tags/v0.1.3.tar.gz"
-  sha256 "90ac241d105776de06e999f865ca282c74319eade006c27ec832dbed203f3303"
+  url "https://github.com/genkio/herdlet/archive/refs/tags/v0.2.0.tar.gz"
+  sha256 "48d196dfd042cb696c6dbacca595294e5fa9d8c3610a69d6bf8881f52bf9b10c"
   license "MIT"
 
   depends_on "python@3.13"
@@ -18,19 +18,16 @@ class Herdlet < Formula
 
   def caveats
     <<~EOS
+      One-time wiring (hooks, agent skill, permissions; idempotent):
+        herdlet setup
+
       No daemon to manage: herdlet auto-starts it on first use
       (socket at ~/.herdlet.sock).
 
-      Agent state updates automatically once you add `herdlet hook` to your
-      Claude Code / Codex hooks; see:
-        #{doc}/README.md
-
-      To let agents coordinate with each other, install the skill:
-        npx skills add genkio/herdlet
-      (or copy #{doc}/SKILL.md into ~/.claude/skills/herdlet/)
-
       Live status popup for your tmux.conf:
         bind m display-popup -E -w 80% -h 60% -T " agents " "herdlet monitor"
+
+      Docs: #{doc}/README.md
     EOS
   end
 
