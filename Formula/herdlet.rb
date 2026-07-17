@@ -3,8 +3,8 @@ class Herdlet < Formula
 
   desc "Tiny coordination bus for coding agents in tmux panes"
   homepage "https://github.com/genkio/herdlet"
-  url "https://github.com/genkio/herdlet/archive/refs/tags/v0.4.3.tar.gz"
-  sha256 "a5a87cf307ab22b3912e4c6c8ffbb514a6fdfb2c74e53a5e1da9d44982a0e359"
+  url "https://github.com/genkio/herdlet/archive/refs/tags/v0.5.0.tar.gz"
+  sha256 "80cfb1a43077daf8ceaa7e48b7c677b9a27839aeb1a25cf815381413aee335e4"
   license "MIT"
 
   depends_on "python@3.13"
@@ -14,6 +14,9 @@ class Herdlet < Formula
     rewrite_shebang detected_python_shebang, "herdlet.py"
     bin.install "herdlet.py" => "herdlet"
     doc.install "skills/herdlet/SKILL.md", "README.md"
+    # `herdlet setup` installs this into ~/.config/opencode/plugins/ (opencode
+    # has no shell-hook config); this is where it looks for it in an install.
+    doc.install "integrations/opencode/herdlet.js" => "opencode-herdlet.js"
   end
 
   def caveats
