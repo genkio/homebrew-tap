@@ -1,7 +1,7 @@
 class ScrcpyGui < Formula
   desc "Mirror and control Android devices from a GUI on top of scrcpy (genkio fork)"
   homepage "https://github.com/genkio/scrcpy-gui"
-  version "2.0.0"
+  version "2.1.0"
   license "Apache-2.0"
 
   depends_on :macos
@@ -9,12 +9,12 @@ class ScrcpyGui < Formula
 
   on_macos do
     on_arm do
-      url "https://github.com/genkio/scrcpy-gui/releases/download/v2.0.0/ScrcpyGui-2.0.0-arm64.zip"
-      sha256 "5c68ae1063110f736f20524ba143b1c41a3dfee1655f48900295e3a705e9103b"
+      url "https://github.com/genkio/scrcpy-gui/releases/download/v2.1.0/ScrcpyGui-2.1.0-arm64.zip"
+      sha256 "2cd5610ecc8dc4183ef49a9d52f0cd81c25d15594299fbe84e661f19228e5b64"
     end
     on_intel do
-      url "https://github.com/genkio/scrcpy-gui/releases/download/v2.0.0/ScrcpyGui-2.0.0-x64.zip"
-      sha256 "014a1af43e8a0f35d99db7ef597303d82fa8a9d01c30920c9d874ac007e83d12"
+      url "https://github.com/genkio/scrcpy-gui/releases/download/v2.1.0/ScrcpyGui-2.1.0-x64.zip"
+      sha256 "702856ae1160bdf59abfce211f036b945e325a6720adc703a23cc24fb8452739"
     end
   end
 
@@ -47,6 +47,6 @@ class ScrcpyGui < Formula
 
   test do
     assert_predicate prefix/"ScrcpyGui.app/Contents/MacOS/ScrcpyGui", :executable?
-    assert_match "2.0.0", (prefix/"ScrcpyGui.app/Contents/Info.plist").read
+    assert_match version.to_s, (prefix/"ScrcpyGui.app/Contents/Info.plist").read
   end
 end

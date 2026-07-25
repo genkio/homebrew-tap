@@ -92,6 +92,11 @@ brew install --cask android-platform-tools   # adb
 scrcpy-gui                                   # mirror and control an Android device
 ```
 
+Pick a device and **Open in app** to mirror it inside the app itself, in a phone-shaped frame with
+a sidebar for battery, screen-off mirroring, clipboard and the navigation keys; the video is
+decoded with WebCodecs rather than handed to scrcpy's own window. **Open the selected mirror**
+still launches the real scrcpy window with the recording and crop options.
+
 The app lives in the Cellar and is launched by the `scrcpy-gui` command, so nothing is installed
 into `/Applications`. `scrcpy` comes in as a formula dependency; `adb` is a cask, hence the extra
 line. Apple Silicon and Intel, macOS 11+.
