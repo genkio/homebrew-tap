@@ -80,6 +80,24 @@ outbound. Full setup in the repo README. arm64 only for now.
 
 Source: <https://github.com/genkio/cc-imessage>
 
+### scrcpy-gui
+
+A maintained fork of [Tomotoes/scrcpy-gui](https://github.com/Tomotoes/scrcpy-gui) (GUI for
+[scrcpy](https://github.com/Genymobile/scrcpy)), rebuilt on Electron 43 + Vue 3 so it runs on
+current macOS and speaks current scrcpy.
+
+```sh
+brew install genkio/tap/scrcpy-gui
+brew install --cask android-platform-tools   # adb
+scrcpy-gui                                   # mirror and control an Android device
+```
+
+The app lives in the Cellar and is launched by the `scrcpy-gui` command, so nothing is installed
+into `/Applications`. `scrcpy` comes in as a formula dependency; `adb` is a cask, hence the extra
+line. Apple Silicon and Intel, macOS 11+.
+
+Source: <https://github.com/genkio/scrcpy-gui>
+
 ### carbonyl
 
 A fork of [fathyb/carbonyl](https://github.com/fathyb/carbonyl) (Chromium in
