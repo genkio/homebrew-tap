@@ -18,6 +18,8 @@ class ScrcpyGui < Formula
     end
   end
 
+  preserve_rpath
+
   def install
     # a zip holding nothing but a directory is staged from inside it, so the bundle
     # contents can arrive in the cwd instead of as ScrcpyGui.app/
@@ -27,12 +29,25 @@ class ScrcpyGui < Formula
       (prefix/"ScrcpyGui.app").install Dir["*"]
     end
 
+    libraries = prefix/"ScrcpyGui.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Libraries"
+    {
+      "libEGL.dylib"    => "@rpath/E",
+      "libGLESv2.dylib" => "@rpath/G",
+      "libffmpeg.dylib" => "@rpath/F",
+    }.each do |library, id|
+      MachO::Tools.change_dylib_id libraries/library, id
+    end
+
     # launched by path rather than copied into /Applications, so it stays a terminal command
     (bin/"scrcpy-gui").write <<~SH
       #!/bin/bash
       exec "#{opt_prefix}/ScrcpyGui.app/Contents/MacOS/ScrcpyGui" "$@"
     SH
     (bin/"scrcpy-gui").chmod 0755
+  end
+
+  def post_install
+    system "codesign", "--force", "--deep", "--sign", "-", prefix/"ScrcpyGui.app"
   end
 
   def caveats
