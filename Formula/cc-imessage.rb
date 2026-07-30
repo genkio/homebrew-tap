@@ -1,22 +1,34 @@
 class CcImessage < Formula
   desc "Two-way bridge between Claude Code tmux sessions and iMessage"
   homepage "https://github.com/genkio/cc-imessage"
-  # Prebuilt standalone binary so it has its own code identity. arm64 only.
-  url "https://github.com/genkio/cc-imessage/releases/download/v0.4.0/cc-imessage-0.4.0-arm64.tar.gz"
-  # explicit: brew otherwise parses "64" out of "arm64" in the filename
+  # Prebuilt standalone binary so it has its own code identity.
+  # explicit version: brew otherwise parses "64" out of the arch in the filename
   version "0.4.0"
-  sha256 "98e03016b9915c0c67c5ce3c48ef0b829235355ff0f2f9b60919cf394c09bc50"
 
-  depends_on arch: :arm64
+  on_arm do
+    url "https://github.com/genkio/cc-imessage/releases/download/v0.4.0/cc-imessage-0.4.0-arm64.tar.gz"
+    sha256 "98e03016b9915c0c67c5ce3c48ef0b829235355ff0f2f9b60919cf394c09bc50"
+  end
+  on_intel do
+    url "https://github.com/genkio/cc-imessage/releases/download/v0.4.0/cc-imessage-0.4.0-x86_64.tar.gz"
+    sha256 "a7bd392d31e85ba42e07c3bb324cc00c24a0fb1881ffd008eb7e2d6aa7f63122"
+  end
+
   depends_on :macos
   depends_on "tmux"
 
   # Frozen TCC anchor. launchd runs this, not cc-imessage directly, so FDA +
   # Automation grants attach to bytes that never change across tool upgrades.
-  # Pinned independently of the tool version; rebuilt ~never.
+  # Pinned independently of the tool version; rebuilt ~never (per arch).
   resource "launcher" do
-    url "https://github.com/genkio/cc-imessage/releases/download/launcher-v1.0.0/ccim-launcher-1.0.0-arm64.tar.gz"
-    sha256 "a970d3bbb9eb71c6b588e3c1805bd18e46d376d69fa2e529850e9c998c2d5451"
+    on_arm do
+      url "https://github.com/genkio/cc-imessage/releases/download/launcher-v1.0.0/ccim-launcher-1.0.0-arm64.tar.gz"
+      sha256 "a970d3bbb9eb71c6b588e3c1805bd18e46d376d69fa2e529850e9c998c2d5451"
+    end
+    on_intel do
+      url "https://github.com/genkio/cc-imessage/releases/download/launcher-v1.0.0/ccim-launcher-1.0.0-x86_64.tar.gz"
+      sha256 "4ac5e8c0a69115aca3da8f18569d7b4ae8f1939ed2f5d4b365b5ef9c9c3025b5"
+    end
   end
 
   def install
@@ -72,8 +84,6 @@ class CcImessage < Formula
         brew services restart genkio/tap/cc-imessage
 
       Needs a running tmux server; sessions are discovered and driven through tmux.
-
-      arm64 only for now. On Intel, build from source: `make build` in the repo.
     EOS
   end
 
