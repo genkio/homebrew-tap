@@ -1,7 +1,7 @@
 class ScrcpyGui < Formula
   desc "Mirror and control Android devices from a GUI on top of scrcpy (genkio fork)"
   homepage "https://github.com/genkio/scrcpy-gui"
-  version "2.4.0"
+  version "2.5.0"
   license "Apache-2.0"
 
   depends_on :macos
@@ -9,12 +9,12 @@ class ScrcpyGui < Formula
 
   on_macos do
     on_arm do
-      url "https://github.com/genkio/scrcpy-gui/releases/download/v2.4.0/ScrcpyGui-2.4.0-arm64.zip"
-      sha256 "ca5948223d4bc5777c505388f5d1e3bb9d4b06c50b5a393434640e2db3b0ff03"
+      url "https://github.com/genkio/scrcpy-gui/releases/download/v2.5.0/ScrcpyGui-2.5.0-arm64.zip"
+      sha256 "bd7819aad7c1e2952a58fd05640b6dc533a8e98dcaedc6d323b462c61be0fb74"
     end
     on_intel do
-      url "https://github.com/genkio/scrcpy-gui/releases/download/v2.4.0/ScrcpyGui-2.4.0-x64.zip"
-      sha256 "c99beb24226816d55a34be71e0e9a90b61eadf31be51919106c2a90e5cdfa7f8"
+      url "https://github.com/genkio/scrcpy-gui/releases/download/v2.5.0/ScrcpyGui-2.5.0-x64.zip"
+      sha256 "77e018007aa8b8a1a74e242345faee1b11acde54384850734772f8939aa2c47a"
     end
   end
 
