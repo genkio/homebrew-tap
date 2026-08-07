@@ -120,8 +120,8 @@ Source: <https://github.com/genkio/carbonyl>
 
 ### tui
 
-One launcher for four cookie-stealth terminal readers (x, inoreader, slack,
-folo), shipped as a single binary.
+One launcher for five cookie-stealth terminal readers (x, inoreader, slack,
+folo, reddit), shipped as a single binary.
 
 ```sh
 brew install genkio/tap/tui
