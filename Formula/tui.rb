@@ -1,7 +1,7 @@
 class Tui < Formula
   desc "One launcher for cookie-stealth terminal readers: x, inoreader, slack, folo, reddit, douban, bilibili"
   homepage "https://github.com/genkio/tui"
-  version "0.17.0"
+  version "0.18.0"
   license "MIT"
 
   # `o` renders a story in carbonyl.
@@ -9,23 +9,23 @@ class Tui < Formula
 
   on_macos do
     on_arm do
-      url "https://github.com/genkio/tui/releases/download/v0.17.0/tui_0.17.0_darwin_arm64.tar.gz"
-      sha256 "c8b1f70e5d65f62abe9cb933868f234dfbe1f0f605180d43c4772b15e48b4045"
+      url "https://github.com/genkio/tui/releases/download/v0.18.0/tui_0.18.0_darwin_arm64.tar.gz"
+      sha256 "4ce2ce84f8be10e7343fa441020794b1abe4d2931b2b1bd8425e28fcfe0570c2"
     end
     on_intel do
-      url "https://github.com/genkio/tui/releases/download/v0.17.0/tui_0.17.0_darwin_amd64.tar.gz"
-      sha256 "81883c89bae2a1050613a1ca4f4536047bcc248eae7b8b6ea84b89293e48ab44"
+      url "https://github.com/genkio/tui/releases/download/v0.18.0/tui_0.18.0_darwin_amd64.tar.gz"
+      sha256 "2c373b73f57641fa80ca28ae112d9f4797f3262ec3e87408d42ac02d6b6af616"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/genkio/tui/releases/download/v0.17.0/tui_0.17.0_linux_arm64.tar.gz"
-      sha256 "609d25049cd89087ca6be5e8aa5ed1cc7783e4c5c2ece0ed55969c96e589e115"
+      url "https://github.com/genkio/tui/releases/download/v0.18.0/tui_0.18.0_linux_arm64.tar.gz"
+      sha256 "c0aeefb1b2cc1dbf74b7ed42ed724721ef701373f7a5919fd1025f17beaf8b92"
     end
     on_intel do
-      url "https://github.com/genkio/tui/releases/download/v0.17.0/tui_0.17.0_linux_amd64.tar.gz"
-      sha256 "b37a7e1959a9220449c82c392787a71d103172148598fa5aa6a19fcf1f98b5b1"
+      url "https://github.com/genkio/tui/releases/download/v0.18.0/tui_0.18.0_linux_amd64.tar.gz"
+      sha256 "d7e608e66b3448caa945eeb0b87a2179d29de19c93f5f6683eff39253d66fdfc"
     end
   end
 
