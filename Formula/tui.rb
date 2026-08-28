@@ -1,7 +1,6 @@
 class Tui < Formula
   desc "SQLite-backed feed service with terminal and web clients"
   homepage "https://github.com/genkio/tui"
-  version "0.20.0"
   license "MIT"
 
   # `o` renders a story in carbonyl.
