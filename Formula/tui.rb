@@ -1,7 +1,7 @@
 class Tui < Formula
-  desc "One launcher for cookie-stealth terminal readers: x, inoreader, slack, folo, reddit, douban, bilibili"
+  desc "SQLite-backed feed service with terminal and web clients"
   homepage "https://github.com/genkio/tui"
-  version "0.19.0"
+  version "0.20.0"
   license "MIT"
 
   # `o` renders a story in carbonyl.
@@ -9,23 +9,23 @@ class Tui < Formula
 
   on_macos do
     on_arm do
-      url "https://github.com/genkio/tui/releases/download/v0.19.0/tui_0.19.0_darwin_arm64.tar.gz"
-      sha256 "a7d5e89622ddb25e261411d9e74d721f5ce526a78f643d69fb62bda6a69a01a7"
+      url "https://github.com/genkio/tui/releases/download/v0.20.0/tui_0.20.0_darwin_arm64.tar.gz"
+      sha256 "b68f44b167d63787f676f9ce522f16a1c1fdfc500e6bf8ad1335322c8a63b331"
     end
     on_intel do
-      url "https://github.com/genkio/tui/releases/download/v0.19.0/tui_0.19.0_darwin_amd64.tar.gz"
-      sha256 "4fd0190cf901c415e317be89f50fe041b069062bbc312c5baa730c0c36433220"
+      url "https://github.com/genkio/tui/releases/download/v0.20.0/tui_0.20.0_darwin_amd64.tar.gz"
+      sha256 "e750055aa21b0226760204eaf1dfce7c2b2ef443057bb239cccd0cd6574479f0"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/genkio/tui/releases/download/v0.19.0/tui_0.19.0_linux_arm64.tar.gz"
-      sha256 "ad46656afa8f444eb30869f66066e40a3adb4b40e54b04bf0a1ce1239e968f7a"
+      url "https://github.com/genkio/tui/releases/download/v0.20.0/tui_0.20.0_linux_arm64.tar.gz"
+      sha256 "1817bda9b3931a537afb378837419c67f8e2c50f147d90b51f95ef09a43b5520"
     end
     on_intel do
-      url "https://github.com/genkio/tui/releases/download/v0.19.0/tui_0.19.0_linux_amd64.tar.gz"
-      sha256 "47c08490d287901d9001e05aa6d0442a0e80fc10da8b443b70b8562e8775470b"
+      url "https://github.com/genkio/tui/releases/download/v0.20.0/tui_0.20.0_linux_amd64.tar.gz"
+      sha256 "a5da3dc7b248500825c83db02b71cb619e7068aae701b634548b1602a91c85ae"
     end
   end
 
@@ -35,10 +35,10 @@ class Tui < Formula
 
   def caveats
     <<~EOS
-      Run `tui` to open the picker. Log into an app with `tui <app> --auth`
-      (e.g. `tui x --auth`): it opens a Chromium-family browser (Brave, Chrome,
-      Chromium, Edge, ...) to capture your session. Credentials and settings are
-      stored in ~/.config/tui/env.
+      Start the feed service with `tui serve`, then run `tui` for the terminal
+      client or `tui web` for the browser. Log into a source with
+      `tui <app> --auth` (for example, `tui x --auth`). Credentials and settings
+      are stored in ~/.config/tui/env unless `--sync-dir` is used.
     EOS
   end
 
