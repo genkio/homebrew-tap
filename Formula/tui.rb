@@ -8,23 +8,23 @@ class Tui < Formula
 
   on_macos do
     on_arm do
-      url "https://github.com/genkio/tui/releases/download/v0.27.0/tui_0.27.0_darwin_arm64.tar.gz"
-      sha256 "0b26f59ee3dce415e2b1bdb63e2c2c70836d8a0e04891635b055afd9707fd57f"
+      url "https://github.com/genkio/tui/releases/download/v0.28.0/tui_0.28.0_darwin_arm64.tar.gz"
+      sha256 "6c7f0f818c104fcba2386a8e3e4b43294149f7927c4b3e401b5bf538ba97488d"
     end
     on_intel do
-      url "https://github.com/genkio/tui/releases/download/v0.27.0/tui_0.27.0_darwin_amd64.tar.gz"
-      sha256 "2e53d6d5108a9f51ffae5df1fd3d2a8aa1c660c8c09d8b36dd846e23310b03a3"
+      url "https://github.com/genkio/tui/releases/download/v0.28.0/tui_0.28.0_darwin_amd64.tar.gz"
+      sha256 "8ee1fb1aea14bc4d2540abc8137f732f670f16a77db0c86611184c65e724254d"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/genkio/tui/releases/download/v0.27.0/tui_0.27.0_linux_arm64.tar.gz"
-      sha256 "e7a9d6632c080cae3e9b6cbdb90b263195a3c047577576e98ff9f6b989bbb9ad"
+      url "https://github.com/genkio/tui/releases/download/v0.28.0/tui_0.28.0_linux_arm64.tar.gz"
+      sha256 "cd52266d32d4e9fbe29a5052bd5b58d14a1f74afa15f4d3ddee33bb3ce027091"
     end
     on_intel do
-      url "https://github.com/genkio/tui/releases/download/v0.27.0/tui_0.27.0_linux_amd64.tar.gz"
-      sha256 "67f0d4ea5ec7de2696a64990581ce64e3cbdaa6ac10ac143f586138ee9743eaa"
+      url "https://github.com/genkio/tui/releases/download/v0.28.0/tui_0.28.0_linux_amd64.tar.gz"
+      sha256 "8dda6d3aa85667806b02df5b158a4cff4d371382c5a64e28f1e16903c4d15351"
     end
   end
 
