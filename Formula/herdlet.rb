@@ -3,8 +3,8 @@ class Herdlet < Formula
 
   desc "Tiny coordination bus for coding agents in tmux panes"
   homepage "https://github.com/genkio/herdlet"
-  url "https://github.com/genkio/herdlet/archive/refs/tags/v0.9.0.tar.gz"
-  sha256 "6bec0951ef930671ecfed2f23e91566ce0b7a9dd448942e0e18be2f4a35351b5"
+  url "https://github.com/genkio/herdlet/archive/refs/tags/v0.10.0.tar.gz"
+  sha256 "c921f86bacf0c57d0adeb8c14e017f80777a82e401c191edc413eed923f66cc3"
   license "MIT"
 
   depends_on "python@3.13"
